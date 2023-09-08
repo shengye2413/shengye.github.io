@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>飞机大战 | 小叶不是叶</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="飞机大战" />
+<meta name="author" content="shengye" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="游戏简介" />
+<meta property="og:description" content="游戏简介" />
+<link rel="canonical" href="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/" />
+<meta property="og:url" content="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/" />
+<meta property="og:site_name" content="小叶不是叶" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-09-04T10:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="飞机大战" />
+<meta name="twitter:site" content="@shengye" />
+<meta name="twitter:creator" content="@shengye" />
+<meta name="google-site-verification" content="xxxxx" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/","headline":"飞机大战","dateModified":"2023-09-04T10:00:00+00:00","datePublished":"2023-09-04T10:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/"},"author":{"@type":"Person","name":"shengye"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/me.png"},"name":"shengye"},"description":"游戏简介","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="小叶不是叶" /><meta name="referrer" content="no-referrer" />
+
+<!-- Begin favicons -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- End favicons -->
+
+<script async src="https://cdn.jsdelivr.net/gh/vszhub/fontawesome/v5.0.12/all.js"></script>
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/assets/img/bg.jpeg);"><header class="masthead">
+  <div class="avatar"><img src="/assets/img/me.png" class="avatar-image" alt="shengye">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">小叶不是叶</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>小叶不是叶的小树</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">文章</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">关于</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://shengyexiuyo2413@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/shengye2413">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://shengye.work@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">飞机大战</h1>
+  <div class="post-meta"><time datetime="2023-09-04T10:00:00+00:00" itemprop="datePublished">4 Sep 2023</time></div>
+
+  <h2 id="游戏简介">游戏简介</h2>
+
+<p>​   本游戏是一个基于GEC6818开发板开发的飞机射击类的小游戏,玩家可以通过触摸屏控制我方飞机移动,发射炮弹击落敌方飞机。游戏有启动界面、游戏运行界面和游戏结束界面。项目链接：https://github.com/shengye2413/gec6818-AircraftWar</p>
+
+<h2 id="游戏逻辑">游戏逻辑</h2>
+
+<ol>
+  <li>
+    <p>使用<code class="language-plaintext highlighter-rouge">ftok()、shmget()</code>函数创建一个共享内存并使用<code class="language-plaintext highlighter-rouge">shmat()</code>函数将共享内存映射到父子进程的地址空间，使进程间可以进行通信。</p>
+  </li>
+  <li>
+    <p>进入主界面循环。</p>
+  </li>
+  <li>
+    <p>在循环中根据鼠标点击的位置进行不同的操作：</p>
+
+    <ul>
+      <li>如果点击了退出按钮，则清除界面并退出程序。</li>
+      <li>如果点击了排行榜按钮，则显示排行榜，并在返回按钮被点击后返回主界面。</li>
+      <li>如果点击了开始游戏按钮，则进入游戏循环。</li>
+    </ul>
+  </li>
+  <li>
+    <p>在游戏循环中：</p>
+
+    <ul>
+      <li>创建两个进程，分别表示敌方和我方。</li>
+      <li>在敌方进程中循环生成敌机，并使用多线程来控制敌机的移动。</li>
+      <li>在我方进程中：
+        <ul>
+          <li>显示我方飞机的初始位置。</li>
+          <li>根据鼠标移动的实时位置更新共享内存中的数据。</li>
+          <li>根据鼠标点击的位置执行不同的操作：
+            <ul>
+              <li>如果点击了游戏区域，则更新我方飞机的位置并开启一个新的线程来控制子弹的轨迹。</li>
+              <li>如果点击了返回按钮，则终止敌方进程，并返回主界面。</li>
+              <li>如果点击了暂停按钮，则显示暂停界面，并暂停敌方进程。在屏幕再次被点击后唤醒敌方进程，并清除暂停界面。</li>
+            </ul>
+          </li>
+          <li>监测敌方进程是否终止，如果终止则显示游戏结束界面，并在返回主界面或重新开始按钮被点击后执行相应操作。</li>
+          <li>游戏终止后记录击毁敌机数量，写入到文件“1.TXT”中。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>关闭文件和释放资源。</p>
+  </li>
+</ol>
+
+<h2 id="核心文件及功能">核心文件及功能</h2>
+
+<ul>
+  <li>background.c: 负责绘制不同界面背景和图片。</li>
+  <li>enemy.c: 负责生成敌机,移动,被击落逻辑。使用多线程实现敌机的并发生成。</li>
+  <li>main.c: 游戏主函数,负责创建界面,生成游戏进程。</li>
+  <li>own_side.c: 负责我方飞机移动和子弹发射逻辑。</li>
+  <li>slide.c/h: 封装了触摸屏输入,提供计算点击位置和实时获取触摸坐标的接口。</li>
+</ul>
+
+<h2 id="代码实现要点">代码实现要点</h2>
+
+<ol>
+  <li>
+    <p>使用framebuffer设备提供的内存映射接口更新屏幕显示。</p>
+  </li>
+  <li>
+    <p>使用多线程实现敌我双方行为的并发执行。</p>
+  </li>
+  <li>
+    <p>使用信号机制控制游戏进程的暂停、继续。</p>
+  </li>
+  <li>
+    <p>使用共享内存使敌我双方可以共享数据(如我方位置)。</p>
+  </li>
+  <li>
+    <p>封装触摸屏输入,避免在不同文件重复编写事件读取代码。</p>
+  </li>
+</ol>
+
+<h2 id="主要函数">主要函数</h2>
+
+<ol>
+  <li>lcd_init()</li>
+</ol>
+
+<p>初始化LCD屏幕,无参数。</p>
+
+<ul>
+  <li>作用:打开framebuffer设备,获取屏幕信息,进行内存映射,为后续绘图做准备。</li>
+</ul>
+
+<ol>
+  <li>draw_pixel(int x, int y, int color)</li>
+</ol>
+
+<p>在指定坐标画点,参数说明:</p>
+
+<ul>
+  <li>x: 横坐标</li>
+  <li>y: 纵坐标</li>
+  <li>
+    <p>color: 画点的颜色值</p>
+  </li>
+  <li>作用:根据传入的坐标,在framebuffer绘图内存上画指定颜色的点。</li>
+</ul>
+
+<ol>
+  <li>direction()</li>
+</ol>
+
+<p>判断触摸动作是否为点击,无参数。</p>
+
+<ul>
+  <li>作用:通过读取触摸屏事件,判断用户触摸动作是否为点击,并返回点击判断结果。</li>
+</ul>
+
+<ol>
+  <li>enemy_air(void *args)</li>
+</ol>
+
+<p>控制敌机移动,参数说明:</p>
+
+<ul>
+  <li>
+    <p>args: 线程参数,这里未使用。</p>
+  </li>
+  <li>
+    <p>作用:在随机位置生成敌机,控制敌机移动,重画敌机位置实现动画效果。</p>
+  </li>
+</ul>
+
+<ol>
+  <li>ball_track(void *args)</li>
+</ol>
+
+<p>绘制我方炮弹的飞行轨迹,参数说明:</p>
+
+<ul>
+  <li>
+    <p>args: 线程参数,这里未使用。</p>
+  </li>
+  <li>
+    <p>作用:根据我方飞机位置绘制炮弹轨迹动画。</p>
+  </li>
+</ul>
+
+<ol>
+  <li>our_air()</li>
+</ol>
+
+<p>重画我方飞机位置,无参数。</p>
+
+<ul>
+  <li>作用:根据最新我方飞机坐标重画飞机位置,实现我方飞机的移动。</li>
+</ul>
+
+<p>好的,继续解释其余一些主要函数:</p>
+
+<ol>
+  <li>draw_background(int color)</li>
+</ol>
+
+<p>绘制全屏背景,参数说明:</p>
+<ul>
+  <li>
+    <p>color: 背景颜色值</p>
+  </li>
+  <li>
+    <p>作用: 用指定颜色值绘制全屏背景。</p>
+  </li>
+</ul>
+
+<ol>
+  <li>draw_picture(int posx, int posy, const char* pic_path)</li>
+</ol>
+
+<p>绘制图片,参数说明:</p>
+<ul>
+  <li>posx: 图片左上角横坐标</li>
+  <li>posy: 图片左上角纵坐标</li>
+  <li>
+    <p>pic_path: 图片路径</p>
+  </li>
+  <li>作用: 在指定位置绘制图片文件。</li>
+</ul>
+
+<ol>
+  <li>Main_Interface()</li>
+</ol>
+
+<p>绘制主界面,无参数。</p>
+
+<ul>
+  <li>作用: 绘制主界面背景和图片。</li>
+</ul>
+
+<ol>
+  <li>Interface()</li>
+</ol>
+
+<p>绘制游戏界面,无参数。</p>
+
+<ul>
+  <li>作用: 绘制游戏运行时的界面背景。</li>
+</ul>
+
+<ol>
+  <li>leaderboard()</li>
+</ol>
+
+<p>绘制排行榜界面,无参数。</p>
+
+<ul>
+  <li>作用: 绘制排行榜界面,待实现排行榜内容。</li>
+</ul>
+
+<ol>
+  <li>gameover()</li>
+</ol>
+
+<p>绘制游戏结束界面,无参数。</p>
+
+<ul>
+  <li>作用:绘制游戏结束画面。</li>
+</ul>
+
+<ol>
+  <li>real_time_location()</li>
+</ol>
+
+<p>实时获取触摸坐标,无参数。</p>
+
+<ul>
+  <li>作用:循环读取触摸屏事件,并实时更新触摸坐标值。</li>
+</ul>
+
+<h2 id="一些变量及宏定义">一些变量及宏定义</h2>
+
+<ul>
+  <li>shm_px: 共享内存起始地址指针,保存我方飞机x坐标</li>
+  <li>shm_py: 共享内存起始地址指针,保存我方飞机y坐标</li>
+  <li>shm_p_num: 共享内存起始地址指针,保存摧毁敌机数量</li>
+  <li>lcd_fd: framebuffer 设备文件描述符</li>
+  <li>IPC_PATH: 共享内存Key的路径</li>
+  <li>IPC_CODE: 共享内存Key的代码</li>
+</ul>
+
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#项目">项目</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/essays/2023/08/24/gec6818-backgammon/">
+          五子棋
+          <small><time datetime="2023-08-24T10:00:00+00:00">24 Aug 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/essays/2023/08/24/hello/">
+          欢迎来到小叶不是叶的小树
+          <small><time datetime="2023-08-24T10:00:00+00:00">24 Aug 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/essays/2023/08/20/backgammon/">
+          五子棋字符版
+          <small><time datetime="2023-08-20T14:00:00+00:00">20 Aug 2023</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2023 <a href="https://github.com/shengye2413/">shengye</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

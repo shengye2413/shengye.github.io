@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>五子棋字符版 | 小叶不是叶</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="五子棋字符版" />
+<meta name="author" content="shengye" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="概述 ​ 本项目实现了一个简单的命令行版两人五子棋游戏。玩家在16x16的棋盘上轮流下棋,先连成五子的一方获胜。 开发环境 ​ vscode，ubuntu 游戏流程 初始化棋盘 定义一个字符型的16x16的字符数组，数组全赋值为-方便观看，这个数组用来建立一个16x16的表格当作棋盘，棋子只能下在棋盘里，下棋下在对应的坐标里。 接收玩家输入位置 读取输入，把输入当作坐标，坐标位置的字符变为下子者所使用的字符。定义一个整数，保存下子个数，个数为偶数的为A，为奇数的为B。 检查胜负 遍历整个棋盘，当寻找到对应的棋子时开始判断。 1.分别定义两个整数计数A和B的相连棋子个数，为了方便之后的调用，定义在主函数中。 2.判读棋子之后的横向棋子是否相等，相等计数等于相连棋子数，不相等计数清零。 3.当计数达到5时，判定为胜利，计数不为零则返回计数位。不为5时计数位为0 打印棋盘 1.当程序开始时，清空屏幕，打印空棋盘。 2.输出横纵坐标方便描述。 3.判断游戏是否结束，未结束接受输入，然后清空屏幕，再次打印新的棋盘排列。 重复2-5直至游戏结束 功能模块 主要分为以下几个模块: 主程序:main.c 初始化棋盘 获取玩家输入 调用判断胜负的函数 打印棋盘 棋盘操作:sheet.c 创建棋盘 打印棋盘 判断玩家是否获胜 描述棋盘操作的头文件:sheet.h 数据结构 使用二维字符数组sheet[16][16]表示棋盘,空格用’-‘表示,玩家A用’O’表示,玩家B用’X’表示。 主要函数 create_sheet:初始化棋盘为16*16的空格 put_sheet:输入棋子，奇偶分别代表不同棋子 check_win:打印当前棋盘,判断胜负 AWin:判断A方是否获胜 BWin:判断B方是否获胜 create_sheet函数: 初始化棋盘,用 ‘-‘ 填充16x16的二维字符数组,表示为空棋格。 调用示例: char sheet[16][16]; create_sheet(sheet); // 初始化棋盘 put_sheet函数: 输入棋子，奇偶分别代表不同棋子 调用示例: put_sheet(sheet,a,b,number); // 输入棋子 check_win函数: 打印当前棋盘状态,判断游戏是否结束,有胜负结果或者是平局。 调用示例: check_win(A_count, B_count, number, sheet); AWin函数: 检查A方是否已经获胜,即是否已经连成5子。返回连子数。 调用示例: int A_count = AWin(sheet, A_count); BWin函数: 检查B方是否已经获胜,类似于AWin。 main函数: 主程序,实现游戏主循环逻辑。 print_sheet函数: 用于打印当前的棋盘状态。" />
+<meta property="og:description" content="概述 ​ 本项目实现了一个简单的命令行版两人五子棋游戏。玩家在16x16的棋盘上轮流下棋,先连成五子的一方获胜。 开发环境 ​ vscode，ubuntu 游戏流程 初始化棋盘 定义一个字符型的16x16的字符数组，数组全赋值为-方便观看，这个数组用来建立一个16x16的表格当作棋盘，棋子只能下在棋盘里，下棋下在对应的坐标里。 接收玩家输入位置 读取输入，把输入当作坐标，坐标位置的字符变为下子者所使用的字符。定义一个整数，保存下子个数，个数为偶数的为A，为奇数的为B。 检查胜负 遍历整个棋盘，当寻找到对应的棋子时开始判断。 1.分别定义两个整数计数A和B的相连棋子个数，为了方便之后的调用，定义在主函数中。 2.判读棋子之后的横向棋子是否相等，相等计数等于相连棋子数，不相等计数清零。 3.当计数达到5时，判定为胜利，计数不为零则返回计数位。不为5时计数位为0 打印棋盘 1.当程序开始时，清空屏幕，打印空棋盘。 2.输出横纵坐标方便描述。 3.判断游戏是否结束，未结束接受输入，然后清空屏幕，再次打印新的棋盘排列。 重复2-5直至游戏结束 功能模块 主要分为以下几个模块: 主程序:main.c 初始化棋盘 获取玩家输入 调用判断胜负的函数 打印棋盘 棋盘操作:sheet.c 创建棋盘 打印棋盘 判断玩家是否获胜 描述棋盘操作的头文件:sheet.h 数据结构 使用二维字符数组sheet[16][16]表示棋盘,空格用’-‘表示,玩家A用’O’表示,玩家B用’X’表示。 主要函数 create_sheet:初始化棋盘为16*16的空格 put_sheet:输入棋子，奇偶分别代表不同棋子 check_win:打印当前棋盘,判断胜负 AWin:判断A方是否获胜 BWin:判断B方是否获胜 create_sheet函数: 初始化棋盘,用 ‘-‘ 填充16x16的二维字符数组,表示为空棋格。 调用示例: char sheet[16][16]; create_sheet(sheet); // 初始化棋盘 put_sheet函数: 输入棋子，奇偶分别代表不同棋子 调用示例: put_sheet(sheet,a,b,number); // 输入棋子 check_win函数: 打印当前棋盘状态,判断游戏是否结束,有胜负结果或者是平局。 调用示例: check_win(A_count, B_count, number, sheet); AWin函数: 检查A方是否已经获胜,即是否已经连成5子。返回连子数。 调用示例: int A_count = AWin(sheet, A_count); BWin函数: 检查B方是否已经获胜,类似于AWin。 main函数: 主程序,实现游戏主循环逻辑。 print_sheet函数: 用于打印当前的棋盘状态。" />
+<link rel="canonical" href="http://localhost:4000/essays/2023/08/20/backgammon/" />
+<meta property="og:url" content="http://localhost:4000/essays/2023/08/20/backgammon/" />
+<meta property="og:site_name" content="小叶不是叶" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-20T14:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="五子棋字符版" />
+<meta name="twitter:site" content="@shengye" />
+<meta name="twitter:creator" content="@shengye" />
+<meta name="google-site-verification" content="xxxxx" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/essays/2023/08/20/backgammon/","headline":"五子棋字符版","dateModified":"2023-08-20T14:00:00+00:00","datePublished":"2023-08-20T14:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/essays/2023/08/20/backgammon/"},"author":{"@type":"Person","name":"shengye"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/me.png"},"name":"shengye"},"description":"概述 ​ 本项目实现了一个简单的命令行版两人五子棋游戏。玩家在16x16的棋盘上轮流下棋,先连成五子的一方获胜。 开发环境 ​ vscode，ubuntu 游戏流程 初始化棋盘 定义一个字符型的16x16的字符数组，数组全赋值为-方便观看，这个数组用来建立一个16x16的表格当作棋盘，棋子只能下在棋盘里，下棋下在对应的坐标里。 接收玩家输入位置 读取输入，把输入当作坐标，坐标位置的字符变为下子者所使用的字符。定义一个整数，保存下子个数，个数为偶数的为A，为奇数的为B。 检查胜负 遍历整个棋盘，当寻找到对应的棋子时开始判断。 1.分别定义两个整数计数A和B的相连棋子个数，为了方便之后的调用，定义在主函数中。 2.判读棋子之后的横向棋子是否相等，相等计数等于相连棋子数，不相等计数清零。 3.当计数达到5时，判定为胜利，计数不为零则返回计数位。不为5时计数位为0 打印棋盘 1.当程序开始时，清空屏幕，打印空棋盘。 2.输出横纵坐标方便描述。 3.判断游戏是否结束，未结束接受输入，然后清空屏幕，再次打印新的棋盘排列。 重复2-5直至游戏结束 功能模块 主要分为以下几个模块: 主程序:main.c 初始化棋盘 获取玩家输入 调用判断胜负的函数 打印棋盘 棋盘操作:sheet.c 创建棋盘 打印棋盘 判断玩家是否获胜 描述棋盘操作的头文件:sheet.h 数据结构 使用二维字符数组sheet[16][16]表示棋盘,空格用’-‘表示,玩家A用’O’表示,玩家B用’X’表示。 主要函数 create_sheet:初始化棋盘为16*16的空格 put_sheet:输入棋子，奇偶分别代表不同棋子 check_win:打印当前棋盘,判断胜负 AWin:判断A方是否获胜 BWin:判断B方是否获胜 create_sheet函数: 初始化棋盘,用 ‘-‘ 填充16x16的二维字符数组,表示为空棋格。 调用示例: char sheet[16][16]; create_sheet(sheet); // 初始化棋盘 put_sheet函数: 输入棋子，奇偶分别代表不同棋子 调用示例: put_sheet(sheet,a,b,number); // 输入棋子 check_win函数: 打印当前棋盘状态,判断游戏是否结束,有胜负结果或者是平局。 调用示例: check_win(A_count, B_count, number, sheet); AWin函数: 检查A方是否已经获胜,即是否已经连成5子。返回连子数。 调用示例: int A_count = AWin(sheet, A_count); BWin函数: 检查B方是否已经获胜,类似于AWin。 main函数: 主程序,实现游戏主循环逻辑。 print_sheet函数: 用于打印当前的棋盘状态。","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="小叶不是叶" /><meta name="referrer" content="no-referrer" />
+
+<!-- Begin favicons -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- End favicons -->
+
+<script async src="https://cdn.jsdelivr.net/gh/vszhub/fontawesome/v5.0.12/all.js"></script>
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/assets/img/bg.jpeg);"><header class="masthead">
+  <div class="avatar"><img src="/assets/img/me.png" class="avatar-image" alt="shengye">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">小叶不是叶</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>小叶不是叶的小树</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">文章</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">关于</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://shengyexiuyo2413@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/shengye2413">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://shengye.work@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">五子棋字符版</h1>
+  <div class="post-meta"><time datetime="2023-08-20T14:00:00+00:00" itemprop="datePublished">20 Aug 2023</time></div>
+
+  <h1 id="概述">概述</h1>
+
+<p>​	本项目实现了一个简单的命令行版两人五子棋游戏。玩家在16x16的棋盘上轮流下棋,先连成五子的一方获胜。</p>
+
+<h2 id="开发环境">开发环境</h2>
+
+<p>​	<strong>vscode，ubuntu</strong></p>
+
+<h2 id="游戏流程">游戏流程</h2>
+
+<ol>
+  <li>
+    <p>初始化棋盘</p>
+
+    <p>定义一个字符型的16x16的字符数组，数组全赋值为-方便观看，这个数组用来建立一个16x16的表格当作棋盘，棋子只能下在棋盘里，下棋下在对应的坐标里。</p>
+  </li>
+  <li>
+    <p>接收玩家输入位置</p>
+
+    <p>读取输入，把输入当作坐标，坐标位置的字符变为下子者所使用的字符。定义一个整数，保存下子个数，个数为偶数的为A，为奇数的为B。</p>
+  </li>
+  <li>
+    <p>检查胜负</p>
+
+    <p>遍历整个棋盘，当寻找到对应的棋子时开始判断。</p>
+
+    <p>1.分别定义两个整数计数A和B的相连棋子个数，为了方便之后的调用，定义在主函数中。</p>
+
+    <p>2.判读棋子之后的横向棋子是否相等，相等计数等于相连棋子数，不相等计数清零。</p>
+
+    <p>3.当计数达到5时，判定为胜利，计数不为零则返回计数位。不为5时计数位为0</p>
+  </li>
+  <li>
+    <p>打印棋盘</p>
+
+    <p>1.当程序开始时，清空屏幕，打印空棋盘。</p>
+
+    <p>2.输出横纵坐标方便描述。</p>
+
+    <p>3.判断游戏是否结束，未结束接受输入，然后清空屏幕，再次打印新的棋盘排列。</p>
+  </li>
+  <li>
+    <p>重复2-5直至游戏结束</p>
+  </li>
+</ol>
+
+<h2 id="功能模块">功能模块</h2>
+
+<p>主要分为以下几个模块:</p>
+
+<ul>
+  <li>主程序:main.c
+    <ul>
+      <li>初始化棋盘</li>
+      <li>获取玩家输入</li>
+      <li>调用判断胜负的函数</li>
+      <li>打印棋盘</li>
+    </ul>
+  </li>
+  <li>棋盘操作:sheet.c
+    <ul>
+      <li>创建棋盘</li>
+      <li>打印棋盘</li>
+      <li>判断玩家是否获胜</li>
+    </ul>
+  </li>
+  <li>描述棋盘操作的头文件:sheet.h</li>
+</ul>
+
+<h2 id="数据结构">数据结构</h2>
+
+<p>使用二维字符数组sheet[16][16]表示棋盘,空格用’-‘表示,玩家A用’O’表示,玩家B用’X’表示。</p>
+
+<h2 id="主要函数">主要函数</h2>
+
+<ul>
+  <li>
+    <p>create_sheet:初始化棋盘为16*16的空格</p>
+  </li>
+  <li>
+    <p>put_sheet:输入棋子，奇偶分别代表不同棋子</p>
+  </li>
+  <li>
+    <p>check_win:打印当前棋盘,判断胜负</p>
+  </li>
+  <li>
+    <p>AWin:判断A方是否获胜</p>
+  </li>
+  <li>
+    <p>BWin:判断B方是否获胜</p>
+
+    <ol>
+      <li>create_sheet函数:</li>
+    </ol>
+
+    <p>初始化棋盘,用 ‘-‘ 填充16x16的二维字符数组,表示为空棋格。</p>
+
+    <p><img src="C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814192803060.png" alt="image-20230814192803060" /></p>
+
+    <p>调用示例:</p>
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">sheet</span><span class="p">[</span><span class="mi">16</span><span class="p">][</span><span class="mi">16</span><span class="p">];</span>
+<span class="n">create_sheet</span><span class="p">(</span><span class="n">sheet</span><span class="p">);</span> <span class="c1">// 初始化棋盘</span>
+</code></pre></div>    </div>
+
+    <ol>
+      <li>
+        <p>put_sheet函数:</p>
+
+        <p>输入棋子，奇偶分别代表不同棋子</p>
+
+        <p><img src="C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814194518160.png" alt="image-20230814194518160" /></p>
+
+        <p>调用示例:</p>
+
+        <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">put_sheet</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">number</span><span class="p">);</span> <span class="c1">// 输入棋子</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>check_win函数:</p>
+      </li>
+    </ol>
+
+    <p>打印当前棋盘状态,判断游戏是否结束,有胜负结果或者是平局。</p>
+
+    <p>调用示例:</p>
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">check_win</span><span class="p">(</span><span class="n">A_count</span><span class="p">,</span> <span class="n">B_count</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">sheet</span><span class="p">);</span> 
+</code></pre></div>    </div>
+
+    <ol>
+      <li>AWin函数:</li>
+    </ol>
+
+    <p>检查A方是否已经获胜,即是否已经连成5子。返回连子数。</p>
+
+    <p><img src="C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814194936983.png" alt="image-20230814194936983" /></p>
+
+    <p>调用示例:</p>
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">A_count</span> <span class="o">=</span> <span class="n">AWin</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">A_count</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <ol>
+      <li>BWin函数:</li>
+    </ol>
+
+    <p>检查B方是否已经获胜,类似于AWin。</p>
+
+    <ol>
+      <li>main函数:</li>
+    </ol>
+
+    <p>主程序,实现游戏主循环逻辑。</p>
+
+    <ol>
+      <li>print_sheet函数:</li>
+    </ol>
+
+    <p>用于打印当前的棋盘状态。</p>
+  </li>
+</ul>
+
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#项目">项目</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/essays/2023/09/04/gec6818-AircraftWar/">
+          飞机大战
+          <small><time datetime="2023-09-04T10:00:00+00:00">04 Sep 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/essays/2023/08/24/gec6818-backgammon/">
+          五子棋
+          <small><time datetime="2023-08-24T10:00:00+00:00">24 Aug 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/essays/2023/08/24/hello/">
+          欢迎来到小叶不是叶的小树
+          <small><time datetime="2023-08-24T10:00:00+00:00">24 Aug 2023</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2023 <a href="https://github.com/shengye2413/">shengye</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

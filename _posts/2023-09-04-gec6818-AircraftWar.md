@@ -1,19 +1,16 @@
 ---
 layout: post
-title: New Theme, New Blog
+title: 飞机大战
 categories: Essays
 tags:
 - 项目
-date: 2023-09-04 010:00 +0000
+date: 2023-09-04 10:00 +0000
 ---
-# gec6818-AircraftWar
 ## 游戏简介
 
  ​   本游戏是一个基于GEC6818开发板开发的飞机射击类的小游戏,玩家可以通过触摸屏控制我方飞机移动,发射炮弹击落敌方飞机。游戏有启动界面、游戏运行界面和游戏结束界面。项目链接：https://github.com/shengye2413/gec6818-AircraftWar
 
 ## 游戏逻辑
-
-
 
 1. 使用`ftok()、shmget()`函数创建一个共享内存并使用`shmat()`函数将共享内存映射到父子进程的地址空间，使进程间可以进行通信。
 

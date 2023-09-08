@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>五子棋 | 小叶不是叶</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="五子棋" />
+<meta name="author" content="shengye" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="概述 这是一个基于Linux Framebuffer的五子棋游戏。 主要功能有: 实现简单的开始界面 实现五子棋游戏的基本规则 实现胜负判断和计分 实现排行榜功能 项目链接：https://github.com/shengye2413/gec6818-backgammon 开发环境 ​ vscode，ubuntu，gec6818 游戏流程 初始化屏幕 使用Linux Framebuffer接口完成屏幕的初始化,主要步骤是: 打开Framebuffer设备文件:/dev/fb0 通过ioctl系统调用获取屏幕信息:分辨率、色深等 计算需要的内存大小,调用mmap完成内存映射 获取内存首地址指针,用于后续像素访问 相关代码在taiji.c中的lcd_init函数。 图形绘制 基于内存映射的指针,可以直接对内存进行读写操作,实现像素级的访问。 例如draw_pixel函数可以画单个像素。draw_background可以设置整个屏幕的背景色。 基于像素级操作,实现了各种图形的绘制,如圆形、图片等。 例如draw_round可以画圆,draw_picture可以绘制bmp图片。 接收玩家输入位置 sheet.c中实现了简单的棋盘和棋子的逻辑。 使用二维数组sheet记录每个位置的棋子情况。 chess函数可以在指定位置画棋子。 检查胜负 遍历整个棋盘，当寻找到对应的棋子时开始判断。 1.分别定义两个整数计数A和B的相连棋子个数，为了方便之后的调用，定义在主函数中。 2.判读棋子之后的横向棋子是否相等，相等计数等于相连棋子数，不相等计数清零。 3.当计数达到5时，判定为胜利，计数不为零则返回计数位。不为5时计数位为0 4.如果当前棋子投降，判定为另一方胜利。 计算排行榜 记录双方获胜次数,显示在排行榜界面。 获胜次数同时保存在外置文件“1.txt”中。 功能模块 主要分为以下几个模块: main.c: main(): 主函数,实现程序的整体流程控制 lcd_init(): 初始化屏幕,实现Framebuffer的设置 draw_pixel(): 画一个像素点 draw_background(): 设置全屏背景色 draw_round1()/draw_round2(): 画圆形的两半 draw_picture(): 绘制bmp图片 draw_taiji(): 画太极图案 checkerboard(): 画棋盘格子 leaderboard(): 显示胜负排行榜 slide.c: open_file(): 打开触摸屏输入设备文件 direction(): 读取触摸事件,判断滑动方向 sheet.c: chess(): 在指定位置画棋子 AWin()/BWin(): 判断黑白棋是否获胜 chess_again(): 棋盘数据清零 taiji.c: lcd_init(): 初始化屏幕 draw_pixel(): 画单个像素 draw_background(): 填充背景 draw_round1/2(): 画圆形 draw_picture(): 画图片 draw_taiji(): 画太极图案 checkerboard(): 画棋盘 leaderboard(): 显示排行榜 主要函数 lcd_init() 这个函数完成了Framebuffer的初始化,主要步骤包括: 打开Framebuffer设备文件:/dev/fb0 通过ioctl系统调用,获取屏幕信息,如分辨率、色深等 计算需要的内存大小 通过mmap内存映射机制,映射Framebuffer显存 获取内存映射的首地址指针,用于后续的像素访问 这样通过内存映射,我们就可以直接读写Framebuffer显存,实现像素级的屏幕访问。 draw_pixel() 这个函数用于画单个像素点,参数包括: x: 水平坐标 y: 垂直坐标 color: 要设定的颜色值 根据坐标,直接设置对应显存位置的颜色值,就可以画出一个像素点。 chess() 这个函数实现下棋逻辑,参数包括: color1/color2: 棋子的两种颜色 num: 记录当前是第几步 函数利用循环遍历棋盘的每个位置,判断点击位置是否有效,如果有效就在该位置画一个棋子,并记录到棋盘数组中。 交替调用该函数,就可以实现黑白棋子的落子。 AWin()/BWin() 这两个函数用来判断黑白棋是否达成五子连线,并返回连线数。 基本思路是遍历数组,找到己方棋子后,判断四个方向是否有相连的五子。" />
+<meta property="og:description" content="概述 这是一个基于Linux Framebuffer的五子棋游戏。 主要功能有: 实现简单的开始界面 实现五子棋游戏的基本规则 实现胜负判断和计分 实现排行榜功能 项目链接：https://github.com/shengye2413/gec6818-backgammon 开发环境 ​ vscode，ubuntu，gec6818 游戏流程 初始化屏幕 使用Linux Framebuffer接口完成屏幕的初始化,主要步骤是: 打开Framebuffer设备文件:/dev/fb0 通过ioctl系统调用获取屏幕信息:分辨率、色深等 计算需要的内存大小,调用mmap完成内存映射 获取内存首地址指针,用于后续像素访问 相关代码在taiji.c中的lcd_init函数。 图形绘制 基于内存映射的指针,可以直接对内存进行读写操作,实现像素级的访问。 例如draw_pixel函数可以画单个像素。draw_background可以设置整个屏幕的背景色。 基于像素级操作,实现了各种图形的绘制,如圆形、图片等。 例如draw_round可以画圆,draw_picture可以绘制bmp图片。 接收玩家输入位置 sheet.c中实现了简单的棋盘和棋子的逻辑。 使用二维数组sheet记录每个位置的棋子情况。 chess函数可以在指定位置画棋子。 检查胜负 遍历整个棋盘，当寻找到对应的棋子时开始判断。 1.分别定义两个整数计数A和B的相连棋子个数，为了方便之后的调用，定义在主函数中。 2.判读棋子之后的横向棋子是否相等，相等计数等于相连棋子数，不相等计数清零。 3.当计数达到5时，判定为胜利，计数不为零则返回计数位。不为5时计数位为0 4.如果当前棋子投降，判定为另一方胜利。 计算排行榜 记录双方获胜次数,显示在排行榜界面。 获胜次数同时保存在外置文件“1.txt”中。 功能模块 主要分为以下几个模块: main.c: main(): 主函数,实现程序的整体流程控制 lcd_init(): 初始化屏幕,实现Framebuffer的设置 draw_pixel(): 画一个像素点 draw_background(): 设置全屏背景色 draw_round1()/draw_round2(): 画圆形的两半 draw_picture(): 绘制bmp图片 draw_taiji(): 画太极图案 checkerboard(): 画棋盘格子 leaderboard(): 显示胜负排行榜 slide.c: open_file(): 打开触摸屏输入设备文件 direction(): 读取触摸事件,判断滑动方向 sheet.c: chess(): 在指定位置画棋子 AWin()/BWin(): 判断黑白棋是否获胜 chess_again(): 棋盘数据清零 taiji.c: lcd_init(): 初始化屏幕 draw_pixel(): 画单个像素 draw_background(): 填充背景 draw_round1/2(): 画圆形 draw_picture(): 画图片 draw_taiji(): 画太极图案 checkerboard(): 画棋盘 leaderboard(): 显示排行榜 主要函数 lcd_init() 这个函数完成了Framebuffer的初始化,主要步骤包括: 打开Framebuffer设备文件:/dev/fb0 通过ioctl系统调用,获取屏幕信息,如分辨率、色深等 计算需要的内存大小 通过mmap内存映射机制,映射Framebuffer显存 获取内存映射的首地址指针,用于后续的像素访问 这样通过内存映射,我们就可以直接读写Framebuffer显存,实现像素级的屏幕访问。 draw_pixel() 这个函数用于画单个像素点,参数包括: x: 水平坐标 y: 垂直坐标 color: 要设定的颜色值 根据坐标,直接设置对应显存位置的颜色值,就可以画出一个像素点。 chess() 这个函数实现下棋逻辑,参数包括: color1/color2: 棋子的两种颜色 num: 记录当前是第几步 函数利用循环遍历棋盘的每个位置,判断点击位置是否有效,如果有效就在该位置画一个棋子,并记录到棋盘数组中。 交替调用该函数,就可以实现黑白棋子的落子。 AWin()/BWin() 这两个函数用来判断黑白棋是否达成五子连线,并返回连线数。 基本思路是遍历数组,找到己方棋子后,判断四个方向是否有相连的五子。" />
+<link rel="canonical" href="http://localhost:4000/essays/2023/08/24/gec6818-backgammon/" />
+<meta property="og:url" content="http://localhost:4000/essays/2023/08/24/gec6818-backgammon/" />
+<meta property="og:site_name" content="小叶不是叶" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-24T10:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="五子棋" />
+<meta name="twitter:site" content="@shengye" />
+<meta name="twitter:creator" content="@shengye" />
+<meta name="google-site-verification" content="xxxxx" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/essays/2023/08/24/gec6818-backgammon/","headline":"五子棋","dateModified":"2023-08-24T10:00:00+00:00","datePublished":"2023-08-24T10:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/essays/2023/08/24/gec6818-backgammon/"},"author":{"@type":"Person","name":"shengye"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/me.png"},"name":"shengye"},"description":"概述 这是一个基于Linux Framebuffer的五子棋游戏。 主要功能有: 实现简单的开始界面 实现五子棋游戏的基本规则 实现胜负判断和计分 实现排行榜功能 项目链接：https://github.com/shengye2413/gec6818-backgammon 开发环境 ​ vscode，ubuntu，gec6818 游戏流程 初始化屏幕 使用Linux Framebuffer接口完成屏幕的初始化,主要步骤是: 打开Framebuffer设备文件:/dev/fb0 通过ioctl系统调用获取屏幕信息:分辨率、色深等 计算需要的内存大小,调用mmap完成内存映射 获取内存首地址指针,用于后续像素访问 相关代码在taiji.c中的lcd_init函数。 图形绘制 基于内存映射的指针,可以直接对内存进行读写操作,实现像素级的访问。 例如draw_pixel函数可以画单个像素。draw_background可以设置整个屏幕的背景色。 基于像素级操作,实现了各种图形的绘制,如圆形、图片等。 例如draw_round可以画圆,draw_picture可以绘制bmp图片。 接收玩家输入位置 sheet.c中实现了简单的棋盘和棋子的逻辑。 使用二维数组sheet记录每个位置的棋子情况。 chess函数可以在指定位置画棋子。 检查胜负 遍历整个棋盘，当寻找到对应的棋子时开始判断。 1.分别定义两个整数计数A和B的相连棋子个数，为了方便之后的调用，定义在主函数中。 2.判读棋子之后的横向棋子是否相等，相等计数等于相连棋子数，不相等计数清零。 3.当计数达到5时，判定为胜利，计数不为零则返回计数位。不为5时计数位为0 4.如果当前棋子投降，判定为另一方胜利。 计算排行榜 记录双方获胜次数,显示在排行榜界面。 获胜次数同时保存在外置文件“1.txt”中。 功能模块 主要分为以下几个模块: main.c: main(): 主函数,实现程序的整体流程控制 lcd_init(): 初始化屏幕,实现Framebuffer的设置 draw_pixel(): 画一个像素点 draw_background(): 设置全屏背景色 draw_round1()/draw_round2(): 画圆形的两半 draw_picture(): 绘制bmp图片 draw_taiji(): 画太极图案 checkerboard(): 画棋盘格子 leaderboard(): 显示胜负排行榜 slide.c: open_file(): 打开触摸屏输入设备文件 direction(): 读取触摸事件,判断滑动方向 sheet.c: chess(): 在指定位置画棋子 AWin()/BWin(): 判断黑白棋是否获胜 chess_again(): 棋盘数据清零 taiji.c: lcd_init(): 初始化屏幕 draw_pixel(): 画单个像素 draw_background(): 填充背景 draw_round1/2(): 画圆形 draw_picture(): 画图片 draw_taiji(): 画太极图案 checkerboard(): 画棋盘 leaderboard(): 显示排行榜 主要函数 lcd_init() 这个函数完成了Framebuffer的初始化,主要步骤包括: 打开Framebuffer设备文件:/dev/fb0 通过ioctl系统调用,获取屏幕信息,如分辨率、色深等 计算需要的内存大小 通过mmap内存映射机制,映射Framebuffer显存 获取内存映射的首地址指针,用于后续的像素访问 这样通过内存映射,我们就可以直接读写Framebuffer显存,实现像素级的屏幕访问。 draw_pixel() 这个函数用于画单个像素点,参数包括: x: 水平坐标 y: 垂直坐标 color: 要设定的颜色值 根据坐标,直接设置对应显存位置的颜色值,就可以画出一个像素点。 chess() 这个函数实现下棋逻辑,参数包括: color1/color2: 棋子的两种颜色 num: 记录当前是第几步 函数利用循环遍历棋盘的每个位置,判断点击位置是否有效,如果有效就在该位置画一个棋子,并记录到棋盘数组中。 交替调用该函数,就可以实现黑白棋子的落子。 AWin()/BWin() 这两个函数用来判断黑白棋是否达成五子连线,并返回连线数。 基本思路是遍历数组,找到己方棋子后,判断四个方向是否有相连的五子。","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="小叶不是叶" /><meta name="referrer" content="no-referrer" />
+
+<!-- Begin favicons -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- End favicons -->
+
+<script async src="https://cdn.jsdelivr.net/gh/vszhub/fontawesome/v5.0.12/all.js"></script>
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/assets/img/bg.jpeg);"><header class="masthead">
+  <div class="avatar"><img src="/assets/img/me.png" class="avatar-image" alt="shengye">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">小叶不是叶</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>小叶不是叶的小树</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">文章</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">关于</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://shengyexiuyo2413@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/shengye2413">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://shengye.work@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">五子棋</h1>
+  <div class="post-meta"><time datetime="2023-08-24T10:00:00+00:00" itemprop="datePublished">24 Aug 2023</time></div>
+
+  <h2 id="概述">概述</h2>
+
+<p>这是一个基于Linux Framebuffer的五子棋游戏。
+主要功能有:
+   实现简单的开始界面
+   实现五子棋游戏的基本规则
+   实现胜负判断和计分
+   实现排行榜功能
+项目链接：https://github.com/shengye2413/gec6818-backgammon</p>
+
+<h2 id="开发环境">开发环境</h2>
+
+<p>​	<strong>vscode，ubuntu，gec6818</strong></p>
+
+<h2 id="游戏流程">游戏流程</h2>
+
+<ol>
+  <li>
+    <p>初始化屏幕</p>
+
+    <p>使用Linux Framebuffer接口完成屏幕的初始化,主要步骤是:</p>
+
+    <ul>
+      <li>打开Framebuffer设备文件:/dev/fb0</li>
+      <li>通过ioctl系统调用获取屏幕信息:分辨率、色深等</li>
+      <li>计算需要的内存大小,调用mmap完成内存映射</li>
+      <li>获取内存首地址指针,用于后续像素访问</li>
+    </ul>
+
+    <p>相关代码在taiji.c中的lcd_init函数。</p>
+  </li>
+  <li>
+    <p>图形绘制</p>
+
+    <p>基于内存映射的指针,可以直接对内存进行读写操作,实现像素级的访问。</p>
+
+    <p>例如draw_pixel函数可以画单个像素。draw_background可以设置整个屏幕的背景色。</p>
+
+    <p>基于像素级操作,实现了各种图形的绘制,如圆形、图片等。</p>
+
+    <p>例如draw_round可以画圆,draw_picture可以绘制bmp图片。</p>
+  </li>
+  <li>
+    <p>接收玩家输入位置</p>
+
+    <p>sheet.c中实现了简单的棋盘和棋子的逻辑。</p>
+
+    <p>使用二维数组sheet记录每个位置的棋子情况。</p>
+
+    <p>chess函数可以在指定位置画棋子。</p>
+  </li>
+  <li>
+    <p>检查胜负</p>
+
+    <p>遍历整个棋盘，当寻找到对应的棋子时开始判断。</p>
+
+    <p>1.分别定义两个整数计数A和B的相连棋子个数，为了方便之后的调用，定义在主函数中。</p>
+
+    <p>2.判读棋子之后的横向棋子是否相等，相等计数等于相连棋子数，不相等计数清零。</p>
+
+    <p>3.当计数达到5时，判定为胜利，计数不为零则返回计数位。不为5时计数位为0</p>
+
+    <p>4.如果当前棋子投降，判定为另一方胜利。</p>
+  </li>
+  <li>
+    <p>计算排行榜</p>
+
+    <p>记录双方获胜次数,显示在排行榜界面。</p>
+
+    <p>获胜次数同时保存在外置文件“1.txt”中。</p>
+  </li>
+</ol>
+
+<h2 id="功能模块">功能模块</h2>
+
+<p>主要分为以下几个模块:</p>
+
+<ul>
+  <li>
+    <p>main.c:</p>
+
+    <ul>
+      <li>
+        <p>main(): 主函数,实现程序的整体流程控制</p>
+      </li>
+      <li>
+        <p>lcd_init(): 初始化屏幕,实现Framebuffer的设置</p>
+      </li>
+      <li>
+        <p>draw_pixel(): 画一个像素点</p>
+      </li>
+      <li>
+        <p>draw_background(): 设置全屏背景色</p>
+      </li>
+      <li>
+        <p>draw_round1()/draw_round2(): 画圆形的两半</p>
+      </li>
+      <li>
+        <p>draw_picture(): 绘制bmp图片</p>
+      </li>
+      <li>
+        <p>draw_taiji(): 画太极图案</p>
+      </li>
+      <li>
+        <p>checkerboard(): 画棋盘格子</p>
+      </li>
+      <li>
+        <p>leaderboard(): 显示胜负排行榜</p>
+      </li>
+    </ul>
+
+    <p>slide.c:</p>
+
+    <ul>
+      <li>
+        <p>open_file(): 打开触摸屏输入设备文件</p>
+      </li>
+      <li>
+        <p>direction(): 读取触摸事件,判断滑动方向</p>
+      </li>
+    </ul>
+
+    <p>sheet.c:</p>
+
+    <ul>
+      <li>
+        <p>chess(): 在指定位置画棋子</p>
+      </li>
+      <li>
+        <p>AWin()/BWin(): 判断黑白棋是否获胜</p>
+      </li>
+      <li>
+        <p>chess_again(): 棋盘数据清零</p>
+      </li>
+    </ul>
+
+    <p>taiji.c:</p>
+
+    <ul>
+      <li>
+        <p>lcd_init(): 初始化屏幕</p>
+      </li>
+      <li>
+        <p>draw_pixel(): 画单个像素</p>
+      </li>
+      <li>
+        <p>draw_background(): 填充背景</p>
+      </li>
+      <li>
+        <p>draw_round1/2(): 画圆形</p>
+      </li>
+      <li>
+        <p>draw_picture(): 画图片</p>
+      </li>
+      <li>
+        <p>draw_taiji(): 画太极图案</p>
+      </li>
+      <li>
+        <p>checkerboard(): 画棋盘</p>
+      </li>
+      <li>
+        <p>leaderboard(): 显示排行榜</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="主要函数">主要函数</h2>
+
+<ul>
+  <li>
+    <p><strong>lcd_init()</strong></p>
+
+    <p>这个函数完成了Framebuffer的初始化,主要步骤包括:</p>
+
+    <ol>
+      <li>
+        <p>打开Framebuffer设备文件:/dev/fb0</p>
+      </li>
+      <li>
+        <p>通过ioctl系统调用,获取屏幕信息,如分辨率、色深等</p>
+      </li>
+      <li>
+        <p>计算需要的内存大小</p>
+      </li>
+      <li>
+        <p>通过mmap内存映射机制,映射Framebuffer显存</p>
+      </li>
+      <li>
+        <p>获取内存映射的首地址指针,用于后续的像素访问</p>
+      </li>
+    </ol>
+
+    <p>这样通过内存映射,我们就可以直接读写Framebuffer显存,实现像素级的屏幕访问。</p>
+
+    <p><strong>draw_pixel()</strong></p>
+
+    <p>这个函数用于画单个像素点,参数包括:</p>
+
+    <ul>
+      <li>x: 水平坐标</li>
+      <li>y: 垂直坐标</li>
+      <li>color: 要设定的颜色值</li>
+    </ul>
+
+    <p>根据坐标,直接设置对应显存位置的颜色值,就可以画出一个像素点。</p>
+
+    <p><strong>chess()</strong></p>
+
+    <p>这个函数实现下棋逻辑,参数包括:</p>
+
+    <ul>
+      <li>color1/color2: 棋子的两种颜色</li>
+      <li>num: 记录当前是第几步</li>
+    </ul>
+  </li>
+</ul>
+
+<p>函数利用循环遍历棋盘的每个位置,判断点击位置是否有效,如果有效就在该位置画一个棋子,并记录到棋盘数组中。</p>
+
+<p>交替调用该函数,就可以实现黑白棋子的落子。</p>
+
+<p><strong>AWin()/BWin()</strong></p>
+
+<p>这两个函数用来判断黑白棋是否达成五子连线,并返回连线数。</p>
+
+<p>基本思路是遍历数组,找到己方棋子后,判断四个方向是否有相连的五子。</p>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#项目">项目</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/essays/2023/09/04/gec6818-AircraftWar/">
+          飞机大战
+          <small><time datetime="2023-09-04T10:00:00+00:00">04 Sep 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/essays/2023/08/24/hello/">
+          欢迎来到小叶不是叶的小树
+          <small><time datetime="2023-08-24T10:00:00+00:00">24 Aug 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/essays/2023/08/20/backgammon/">
+          五子棋字符版
+          <small><time datetime="2023-08-20T14:00:00+00:00">20 Aug 2023</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2023 <a href="https://github.com/shengye2413/">shengye</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>
