@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-09-09T06:31:21+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">小叶不是叶</title><subtitle>小叶不是叶的小树</subtitle><author><name>shengye</name><email>shengye.work@gmail.com</email></author><entry><title type="html">飞机大战</title><link href="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/" rel="alternate" type="text/html" title="飞机大战" /><published>2023-09-04T10:00:00+00:00</published><updated>2023-09-04T10:00:00+00:00</updated><id>http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar</id><content type="html" xml:base="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/">&lt;h1 id=&quot;飞机大战&quot;&gt;飞机大战&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-09-09T06:36:54+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">小叶不是叶</title><subtitle>小叶不是叶的小树</subtitle><author><name>shengye</name><email>shengye.work@gmail.com</email></author><entry><title type="html">飞机大战</title><link href="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/" rel="alternate" type="text/html" title="飞机大战" /><published>2023-09-04T10:00:00+00:00</published><updated>2023-09-04T10:00:00+00:00</updated><id>http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar</id><content type="html" xml:base="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/">&lt;h1 id=&quot;飞机大战&quot;&gt;飞机大战&lt;/h1&gt;
 
 &lt;h2 id=&quot;游戏简介&quot;&gt;游戏简介&lt;/h2&gt;
 
@@ -588,7 +588,7 @@
 
     &lt;p&gt;输入棋子，奇偶分别代表不同棋子&lt;/p&gt;
 
-    &lt;p&gt;&lt;img src=&quot;C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814194518160.png&quot; alt=&quot;image-20230814194518160&quot; /&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;image-1.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
 
     &lt;p&gt;调用示例:&lt;/p&gt;
 
@@ -613,9 +613,8 @@
 
 &lt;p&gt;检查A方是否已经获胜,即是否已经连成5子。返回连子数。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814194936983.png&quot; alt=&quot;image-20230814194936983&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;调用示例:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image-2.png&quot; alt=&quot;Alt text&quot; /&gt;
+  调用示例:&lt;/p&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A_count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sheet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A_count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;

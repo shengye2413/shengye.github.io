@@ -93,7 +93,7 @@ date: 2023-08-20 14:00 +0000
 
      输入棋子，奇偶分别代表不同棋子
 
-     ![image-20230814194518160](C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814194518160.png)
+     ![Alt text](image-1.png)
 
      调用示例:
 
@@ -115,8 +115,7 @@ date: 2023-08-20 14:00 +0000
 
   检查A方是否已经获胜,即是否已经连成5子。返回连子数。
 
-  ![image-20230814194936983](C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814194936983.png)
-
+ ![Alt text](image-2.png)
   调用示例:
 
   ```c
