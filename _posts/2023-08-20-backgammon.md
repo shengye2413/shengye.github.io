@@ -81,7 +81,7 @@ date: 2023-08-20 14:00 +0000
 
   初始化棋盘,用 '-' 填充16x16的二维字符数组,表示为空棋格。
 
-![Alt text](https://github.com/shengye2413/shengye.github.io/blob/main/_posts/image.png?raw=true)
+![Alt text](https://drive.smvm.cn/src/64fc1eed83ef230001562429?auth_key=1694287792-lTlZvnnjPbgOQpm2yiOobjMVNvPWtg3D7DHIzF4gus8m9opGkcRJYhhAQ44CketvdPVFBiHljGJfhUlY-0-c6d2cf57c27ea07ba805e2a93580b298)
   调用示例:
 
   ```c
