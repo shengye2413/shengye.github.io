@@ -81,7 +81,7 @@ date: 2023-08-20 14:00 +0000
 
   初始化棋盘,用 '-' 填充16x16的二维字符数组,表示为空棋格。
 
-![Alt text](https://drive.smvm.cn/src/64fc1eed83ef230001562429?auth_key=1694287792-lTlZvnnjPbgOQpm2yiOobjMVNvPWtg3D7DHIzF4gus8m9opGkcRJYhhAQ44CketvdPVFBiHljGJfhUlY-0-c6d2cf57c27ea07ba805e2a93580b298)
+![Alt text](https://pic4.58cdn.com.cn/nowater/webim/big/n_v23d54aa38e2af4716b9375bf9e66bd468.png)
   调用示例:
 
   ```c
@@ -93,7 +93,7 @@ date: 2023-08-20 14:00 +0000
 
      输入棋子，奇偶分别代表不同棋子
 
-![Alt text](https://github.com/shengye2413/shengye.github.io/blob/main/_posts/image-1.png?raw=true)
+![Alt text](https://pic7.58cdn.com.cn/nowater/webim/big/n_v2c940256e8e9f40a0b4cd58cba979b9cb.png)
 
      调用示例:
 
@@ -115,7 +115,7 @@ date: 2023-08-20 14:00 +0000
 
   检查A方是否已经获胜,即是否已经连成5子。返回连子数。
 
-![Alt text](https://github.com/shengye2413/shengye.github.io/blob/main/_posts/image-2.png?raw=true)
+![Alt text](https://pic2.58cdn.com.cn/nowater/webim/big/n_v26f133c7291834161be003296ccea13bd.png)
   调用示例:
 
   ```c
