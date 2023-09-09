@@ -55,7 +55,7 @@
     <small>小叶不是叶的小树</small>
   </div><nav class="navigation">
     <ul class="navigation-list"><li class="navigation-item">
-        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">文章</a>
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">博客</a>
       </li><li class="navigation-item">
         <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">关于</a>
       </li></ul>
@@ -182,72 +182,71 @@
     </ol>
 
     <p>初始化棋盘,用 ‘-‘ 填充16x16的二维字符数组,表示为空棋格。</p>
-
-    <p><img src="C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814192803060.png" alt="image-20230814192803060" /></p>
-
-    <p>调用示例:</p>
-
-    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">sheet</span><span class="p">[</span><span class="mi">16</span><span class="p">][</span><span class="mi">16</span><span class="p">];</span>
-<span class="n">create_sheet</span><span class="p">(</span><span class="n">sheet</span><span class="p">);</span> <span class="c1">// 初始化棋盘</span>
-</code></pre></div>    </div>
-
-    <ol>
-      <li>
-        <p>put_sheet函数:</p>
-
-        <p>输入棋子，奇偶分别代表不同棋子</p>
-
-        <p><img src="C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814194518160.png" alt="image-20230814194518160" /></p>
-
-        <p>调用示例:</p>
-
-        <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">put_sheet</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">number</span><span class="p">);</span> <span class="c1">// 输入棋子</span>
-</code></pre></div>        </div>
-      </li>
-      <li>
-        <p>check_win函数:</p>
-      </li>
-    </ol>
-
-    <p>打印当前棋盘状态,判断游戏是否结束,有胜负结果或者是平局。</p>
-
-    <p>调用示例:</p>
-
-    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">check_win</span><span class="p">(</span><span class="n">A_count</span><span class="p">,</span> <span class="n">B_count</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">sheet</span><span class="p">);</span> 
-</code></pre></div>    </div>
-
-    <ol>
-      <li>AWin函数:</li>
-    </ol>
-
-    <p>检查A方是否已经获胜,即是否已经连成5子。返回连子数。</p>
-
-    <p><img src="C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814194936983.png" alt="image-20230814194936983" /></p>
-
-    <p>调用示例:</p>
-
-    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">A_count</span> <span class="o">=</span> <span class="n">AWin</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">A_count</span><span class="p">);</span>
-</code></pre></div>    </div>
-
-    <ol>
-      <li>BWin函数:</li>
-    </ol>
-
-    <p>检查B方是否已经获胜,类似于AWin。</p>
-
-    <ol>
-      <li>main函数:</li>
-    </ol>
-
-    <p>主程序,实现游戏主循环逻辑。</p>
-
-    <ol>
-      <li>print_sheet函数:</li>
-    </ol>
-
-    <p>用于打印当前的棋盘状态。</p>
   </li>
 </ul>
+
+<p><img src="image.png" alt="Alt text" />
+  调用示例:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kt">char</span> <span class="n">sheet</span><span class="p">[</span><span class="mi">16</span><span class="p">][</span><span class="mi">16</span><span class="p">];</span>
+  <span class="n">create_sheet</span><span class="p">(</span><span class="n">sheet</span><span class="p">);</span> <span class="c1">// 初始化棋盘</span>
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>put_sheet函数:</p>
+
+    <p>输入棋子，奇偶分别代表不同棋子</p>
+
+    <p><img src="C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814194518160.png" alt="image-20230814194518160" /></p>
+
+    <p>调用示例:</p>
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">put_sheet</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">number</span><span class="p">);</span> <span class="c1">// 输入棋子</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>check_win函数:</p>
+  </li>
+</ol>
+
+<p>打印当前棋盘状态,判断游戏是否结束,有胜负结果或者是平局。</p>
+
+<p>调用示例:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">check_win</span><span class="p">(</span><span class="n">A_count</span><span class="p">,</span> <span class="n">B_count</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">sheet</span><span class="p">);</span> 
+</code></pre></div></div>
+
+<ol>
+  <li>AWin函数:</li>
+</ol>
+
+<p>检查A方是否已经获胜,即是否已经连成5子。返回连子数。</p>
+
+<p><img src="C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814194936983.png" alt="image-20230814194936983" /></p>
+
+<p>调用示例:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kt">int</span> <span class="n">A_count</span> <span class="o">=</span> <span class="n">AWin</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">A_count</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ol>
+  <li>BWin函数:</li>
+</ol>
+
+<p>检查B方是否已经获胜,类似于AWin。</p>
+
+<ol>
+  <li>main函数:</li>
+</ol>
+
+<p>主程序,实现游戏主循环逻辑。</p>
+
+<ol>
+  <li>print_sheet函数:</li>
+</ol>
+
+<p>用于打印当前的棋盘状态。</p>
 
 
 

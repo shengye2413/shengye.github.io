@@ -81,8 +81,7 @@ date: 2023-08-20 14:00 +0000
 
   初始化棋盘,用 '-' 填充16x16的二维字符数组,表示为空棋格。
 
-  ![image-20230814192803060](C:\Users\29102\AppData\Roaming\Typora\typora-user-images\image-20230814192803060.png)
-
+![Alt text](image.png)
   调用示例:
 
   ```c
