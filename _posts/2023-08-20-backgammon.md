@@ -93,7 +93,7 @@ date: 2023-08-20 14:00 +0000
 
      输入棋子，奇偶分别代表不同棋子
 
-     ![Alt text](https://github.com/shengye2413/shengye.github.io/blob/main/_posts/image-1.png?raw=true)
+![Alt text](https://github.com/shengye2413/shengye.github.io/blob/main/_posts/image-1.png?raw=true)
 
      调用示例:
 
@@ -115,7 +115,7 @@ date: 2023-08-20 14:00 +0000
 
   检查A方是否已经获胜,即是否已经连成5子。返回连子数。
 
- ![Alt text](https://github.com/shengye2413/shengye.github.io/blob/main/_posts/image-2.png?raw=true)
+![Alt text](https://github.com/shengye2413/shengye.github.io/blob/main/_posts/image-2.png?raw=true)
   调用示例:
 
   ```c
