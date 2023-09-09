@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-09-09T06:18:56+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">小叶不是叶</title><subtitle>小叶不是叶的小树</subtitle><author><name>shengye</name><email>shengye.work@gmail.com</email></author><entry><title type="html">飞机大战</title><link href="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/" rel="alternate" type="text/html" title="飞机大战" /><published>2023-09-04T10:00:00+00:00</published><updated>2023-09-04T10:00:00+00:00</updated><id>http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar</id><content type="html" xml:base="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/">&lt;h1 id=&quot;飞机大战&quot;&gt;飞机大战&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-09-09T06:31:21+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">小叶不是叶</title><subtitle>小叶不是叶的小树</subtitle><author><name>shengye</name><email>shengye.work@gmail.com</email></author><entry><title type="html">飞机大战</title><link href="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/" rel="alternate" type="text/html" title="飞机大战" /><published>2023-09-04T10:00:00+00:00</published><updated>2023-09-04T10:00:00+00:00</updated><id>http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar</id><content type="html" xml:base="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/">&lt;h1 id=&quot;飞机大战&quot;&gt;飞机大战&lt;/h1&gt;
 
 &lt;h2 id=&quot;游戏简介&quot;&gt;游戏简介&lt;/h2&gt;
 
@@ -575,7 +575,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;image.png&quot; alt=&quot;Alt text&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/shengye2413/shengye.github.io/blob/main/_posts/image.png?raw=true&quot; alt=&quot;Alt text&quot; /&gt;
   调用示例:&lt;/p&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sheet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
