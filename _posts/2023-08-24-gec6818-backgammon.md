@@ -7,7 +7,7 @@ tags:
 date: 2023-08-24 10:00 +0000
 ---
 # 五子棋
-
+![start.jpg](https://pic7.58cdn.com.cn/nowater/webim/big/n_v21881d2fee4864d3dac441fdc88516217.jpg)
 ## 概述
 
    这是一个基于Linux Framebuffer的五子棋游戏。
@@ -55,6 +55,8 @@ date: 2023-08-24 10:00 +0000
 
    chess函数可以在指定位置画棋子。
 
+![game.jpg](https://pic7.58cdn.com.cn/nowater/webim/big/n_v23bfce5497e914e24aff7c8f2cacd9c23.jpg)
+
 4. 检查胜负
 
    遍历整个棋盘，当寻找到对应的棋子时开始判断。
@@ -67,11 +69,15 @@ date: 2023-08-24 10:00 +0000
 
    4.如果当前棋子投降，判定为另一方胜利。
 
+![end.jpg](https://pic8.58cdn.com.cn/nowater/webim/big/n_v2902df2d7261c4a678e7a8ebb661e858b.jpg)
 5. 计算排行榜
 
    记录双方获胜次数,显示在排行榜界面。
 
    获胜次数同时保存在外置文件“1.txt"中。
+
+
+![ban.jpg](https://pic6.58cdn.com.cn/nowater/webim/big/n_v21b7f67c645d3441aaf1d46d3a59793e2.jpg)
 
 ## 功能模块
 
