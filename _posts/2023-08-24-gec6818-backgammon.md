@@ -75,7 +75,7 @@ date: 2023-08-24 10:00 +0000
    记录双方获胜次数,显示在排行榜界面。
 
    获胜次数同时保存在外置文件“1.txt"中。
-
+ 
 
 ![ban.jpg](https://pic6.58cdn.com.cn/nowater/webim/big/n_v21b7f67c645d3441aaf1d46d3a59793e2.jpg)
 
