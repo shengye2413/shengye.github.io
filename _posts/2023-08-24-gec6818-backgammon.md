@@ -55,7 +55,7 @@ date: 2023-08-24 10:00 +0000
 
    chess函数可以在指定位置画棋子。
 
-![game.jpg](https://pic7.58cdn.com.cn/nowater/webim/big/n_v23bfce5497e914e24aff7c8f2cacd9c23.jpg)
+![](https://github.com/shengye2413/shengye.github.io/blob/main/_site/essays/2023/08/20/backgammon/IMG_20230823_111543.jpg?raw=true)
 
 4. 检查胜负
 
