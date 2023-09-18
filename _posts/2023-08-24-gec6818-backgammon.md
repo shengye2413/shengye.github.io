@@ -7,7 +7,7 @@ tags:
 date: 2023-08-24 10:00 +0000
 ---
 # 五子棋
-![start.jpg](https://github.com/shengye2413/shengye.github.io/blob/main/_site/essays/2023/08/20/backgammon/kaishi.jpg?raw=true)
+![start.jpg](https://github.com/shengye2413/shengyeproject/blob/main/backgammon6818/start.jpg?raw=true)
 ## 概述
 
    这是一个基于Linux Framebuffer的五子棋游戏。
@@ -55,7 +55,7 @@ date: 2023-08-24 10:00 +0000
 
    chess函数可以在指定位置画棋子。
 
-![xiazi.jpg](https://github.com/shengye2413/shengye.github.io/blob/main/_site/essays/2023/08/20/backgammon/xiazi.jpg?raw=true)
+![game.jpg](https://github.com/shengye2413/shengyeproject/blob/main/backgammon6818/game.jpg?raw=true)
 
 4. 检查胜负
 
@@ -69,7 +69,7 @@ date: 2023-08-24 10:00 +0000
 
    4.如果当前棋子投降，判定为另一方胜利。
 
-![end.jpg](https://github.com/shengye2413/shengye.github.io/blob/main/_site/essays/2023/08/20/backgammon/jieshu.jpg?raw=true)
+![end.jpg](https://github.com/shengye2413/shengyeproject/blob/main/backgammon6818/end.jpg?raw=true)
 5. 计算排行榜
 
    记录双方获胜次数,显示在排行榜界面。
@@ -77,7 +77,7 @@ date: 2023-08-24 10:00 +0000
    获胜次数同时保存在外置文件“1.txt"中。
  
 
-![ban.jpg](https://github.com/shengye2413/shengye.github.io/blob/main/_site/essays/2023/08/20/backgammon/paihang.jpg?raw=true)
+![Ranking.jpg](https://github.com/shengye2413/shengyeproject/blob/main/backgammon6818/Ranking.jpg?raw=true)
 
 ## 功能模块
 

@@ -81,7 +81,7 @@ date: 2023-08-20 14:00 +0000
 
   初始化棋盘,用 '-' 填充16x16的二维字符数组,表示为空棋格。
 
-![Alt text](https://pic4.58cdn.com.cn/nowater/webim/big/n_v23d54aa38e2af4716b9375bf9e66bd468.png)
+![start](https://github.com/shengye2413/shengyeproject/blob/main/backgammon/start.png?raw=true)
   调用示例:
 
   ```c
@@ -93,7 +93,7 @@ date: 2023-08-20 14:00 +0000
 
      输入棋子，奇偶分别代表不同棋子
 
-![Alt text](https://pic7.58cdn.com.cn/nowater/webim/big/n_v2c940256e8e9f40a0b4cd58cba979b9cb.png)
+![game](https://github.com/shengye2413/shengyeproject/blob/main/backgammon/game.png?raw=true)
 
      调用示例:
 
@@ -115,7 +115,7 @@ date: 2023-08-20 14:00 +0000
 
   检查A方是否已经获胜,即是否已经连成5子。返回连子数。
 
-![Alt text](https://pic2.58cdn.com.cn/nowater/webim/big/n_v26f133c7291834161be003296ccea13bd.png)
+![end](https://github.com/shengye2413/shengyeproject/blob/main/backgammon/end.png?raw=true)
   调用示例:
 
   ```c

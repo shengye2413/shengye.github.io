@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-09-16T16:12:09+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">小叶不是叶</title><subtitle>小叶不是叶的小树</subtitle><author><name>shengye</name><email>shengye.work@gmail.com</email></author><entry><title type="html">飞机大战</title><link href="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/" rel="alternate" type="text/html" title="飞机大战" /><published>2023-09-04T10:00:00+00:00</published><updated>2023-09-04T10:00:00+00:00</updated><id>http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar</id><content type="html" xml:base="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/">&lt;h1 id=&quot;飞机大战&quot;&gt;飞机大战&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-09-18T01:08:49+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">小叶不是叶</title><subtitle>小叶不是叶的小树</subtitle><author><name>shengye</name><email>shengye.work@gmail.com</email></author><entry><title type="html">飞机大战</title><link href="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/" rel="alternate" type="text/html" title="飞机大战" /><published>2023-09-04T10:00:00+00:00</published><updated>2023-09-04T10:00:00+00:00</updated><id>http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar</id><content type="html" xml:base="http://localhost:4000/essays/2023/09/04/gec6818-AircraftWar/">&lt;h1 id=&quot;飞机大战&quot;&gt;飞机大战&lt;/h1&gt;
 
 &lt;h2 id=&quot;游戏简介&quot;&gt;游戏简介&lt;/h2&gt;
 
@@ -247,7 +247,7 @@
   &lt;li&gt;IPC_PATH: 共享内存Key的路径&lt;/li&gt;
   &lt;li&gt;IPC_CODE: 共享内存Key的代码&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>shengye</name><email>shengye.work@gmail.com</email></author><category term="Essays" /><category term="项目" /><summary type="html">飞机大战</summary></entry><entry><title type="html">五子棋</title><link href="http://localhost:4000/essays/2023/08/24/gec6818-backgammon/" rel="alternate" type="text/html" title="五子棋" /><published>2023-08-24T10:00:00+00:00</published><updated>2023-08-24T10:00:00+00:00</updated><id>http://localhost:4000/essays/2023/08/24/gec6818-backgammon</id><content type="html" xml:base="http://localhost:4000/essays/2023/08/24/gec6818-backgammon/">&lt;h1 id=&quot;五子棋&quot;&gt;五子棋&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/shengye2413/shengye.github.io/blob/main/_site/essays/2023/08/20/backgammon/kaishi.jpg?raw=true&quot; alt=&quot;start.jpg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/shengye2413/shengyeproject/blob/main/backgammon6818/start.jpg?raw=true&quot; alt=&quot;start.jpg&quot; /&gt;&lt;/p&gt;
 &lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
 
 &lt;p&gt;这是一个基于Linux Framebuffer的五子棋游戏。
@@ -305,7 +305,7 @@
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://github.com/shengye2413/shengye.github.io/blob/main/_site/essays/2023/08/20/backgammon/xiazi.jpg?raw=true&quot; alt=&quot;xiazi.jpg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/shengye2413/shengyeproject/blob/main/backgammon6818/game.jpg?raw=true&quot; alt=&quot;game.jpg&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -323,7 +323,7 @@
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://github.com/shengye2413/shengye.github.io/blob/main/_site/essays/2023/08/20/backgammon/jieshu.jpg?raw=true&quot; alt=&quot;end.jpg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/shengye2413/shengyeproject/blob/main/backgammon6818/end.jpg?raw=true&quot; alt=&quot;end.jpg&quot; /&gt;&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;
     &lt;p&gt;计算排行榜&lt;/p&gt;
@@ -334,7 +334,7 @@
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://github.com/shengye2413/shengye.github.io/blob/main/_site/essays/2023/08/20/backgammon/paihang.jpg?raw=true&quot; alt=&quot;ban.jpg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/shengye2413/shengyeproject/blob/main/backgammon6818/Ranking.jpg?raw=true&quot; alt=&quot;Ranking.jpg&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;功能模块&quot;&gt;功能模块&lt;/h2&gt;
 
@@ -590,7 +590,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://pic4.58cdn.com.cn/nowater/webim/big/n_v23d54aa38e2af4716b9375bf9e66bd468.png&quot; alt=&quot;Alt text&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/shengye2413/shengyeproject/blob/main/backgammon/start.png?raw=true&quot; alt=&quot;start&quot; /&gt;
   调用示例:&lt;/p&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sheet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
@@ -605,7 +605,7 @@
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://pic7.58cdn.com.cn/nowater/webim/big/n_v2c940256e8e9f40a0b4cd58cba979b9cb.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/shengye2413/shengyeproject/blob/main/backgammon/game.png?raw=true&quot; alt=&quot;game&quot; /&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; 调用示例:
 
@@ -631,7 +631,7 @@
 
 &lt;p&gt;检查A方是否已经获胜,即是否已经连成5子。返回连子数。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://pic2.58cdn.com.cn/nowater/webim/big/n_v26f133c7291834161be003296ccea13bd.png&quot; alt=&quot;Alt text&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/shengye2413/shengyeproject/blob/main/backgammon/end.png?raw=true&quot; alt=&quot;end&quot; /&gt;
   调用示例:&lt;/p&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A_count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sheet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A_count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
